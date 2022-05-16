@@ -7,8 +7,11 @@
 node_modules/
 dist/
 build/
+<<<<<<< HEAD
 *.txt
 yarn.*
+=======
+>>>>>>> 917cde7f746b8b17cfcb52ef9058450065c9c6bb
 
 # Compiled Java class files
 *.class
