@@ -4,8 +4,9 @@ ExpressJS-server with Payload-instance. Basic install, blank.
 ## Install:  
 yarn install  
 
-## Development:  
-clone, yarn  
+## Development  
+### TWO (2) terminals needed to run TSC and NODEMON for development, like this:  
+yarn watch  
 yarn dev
 
 ## Production:  
