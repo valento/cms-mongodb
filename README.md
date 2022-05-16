@@ -12,5 +12,5 @@ yarn dev
 clone, yarn.  
 yarn build:payload  
 yarn build:server  
-copy .env, payload.congif.js to ./dist  
+copy .env, payload.config.js to ./dist  
 yarn start
