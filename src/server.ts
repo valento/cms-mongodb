@@ -2,11 +2,15 @@ import express from 'express'
 import payload from 'payload'
 
 import * as dotenv from 'dotenv'
-dotenv.config({ path: __dirname + '/.env' })
+
+// if( process.env.NODE_ENV === 'production' ) {
+    dotenv.config()//{ path: __dirname + '/.env' }
+// } else {
+    // dotenv.config({ path: __dirname + process.env.DEV_ENV_PATH })
+// }
 
 const app = express()
 const { PAYLOAD_LICENSE,PAYLOAD_SECRET,CMS_PORT,CMS_DB_USER,CMS_DB_URI } = process.env
-console.log(CMS_PORT)
 
 
 app.get('/', (_,res) => {
@@ -17,13 +21,13 @@ app.get('/foo', (_,res) => {
 })
 
 payload.init({
-    secret: PAYLOAD_SECRET,
-    mongoURL: CMS_DB_URI,
-    license: PAYLOAD_LICENSE,
+    secret: PAYLOAD_SECRET || '',
+    mongoURL: CMS_DB_URI || '',
+    license: PAYLOAD_LICENSE || '',
     express: app,
     onInit: () => {
         payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
     }
 })
 
-app.listen(CMS_PORT, ()=>{ console.log('CMS Server on ', process.env.CMS_PORT) })
+app.listen(CMS_PORT, ()=>{ console.log('CMS Server on ', CMS_PORT) })
