@@ -21,13 +21,13 @@ app.get('/foo', (_,res) => {
 })
 
 payload.init({
-    secret: PAYLOAD_SECRET || '',
-    mongoURL: CMS_DB_URI || '',
-    license: PAYLOAD_LICENSE || '',
-    express: app,
-    onInit: () => {
-        payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-    }
+  secret: PAYLOAD_SECRET || '',
+  mongoURL: CMS_DB_URI || '',
+  license: PAYLOAD_LICENSE || '',
+  express: app,
+  onInit: () => {
+    payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
+  }
 })
 
 app.listen(CMS_PORT, ()=>{ console.log('CMS Server on ', CMS_PORT) })
